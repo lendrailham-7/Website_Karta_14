@@ -1,5 +1,24 @@
 from django.contrib import admin
-from .models import Pengurus
+
+from .models import Divisi, Pengurus
+
+
+@admin.register(Divisi)
+class DivisiAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'nama',
+        'urutan'
+    )
+
+    list_editable = (
+        'urutan',
+    )
+
+    ordering = (
+        'urutan',
+    )
+
 
 @admin.register(Pengurus)
 class PengurusAdmin(admin.ModelAdmin):
@@ -7,7 +26,12 @@ class PengurusAdmin(admin.ModelAdmin):
     list_display = (
         'nama',
         'jabatan',
+        'divisi',
         'urutan'
+    )
+
+    list_filter = (
+        'divisi',
     )
 
     list_editable = (

@@ -16,68 +16,67 @@ Pengurus
 
         </h1>
 
-        <p class="text-muted">
-
-            Pengurus Karang Taruna
-
-        </p>
-
     </div>
 
-    <div class="row g-4">
+    <h3 class="mb-4">
 
-        {% for item in pengurus %}
+        Pengurus Inti
 
-        <div class="col-md-3">
+    </h3>
 
-            <div class="card text-center shadow-sm h-100">
+    <div class="row g-4 mb-5">
 
-                {% if item.foto %}
+        {% for item in pengurus_inti %}
 
-                <img src="{{ item.foto.url }}"
-                     class="card-img-top"
-                     style="
-                        height:250px;
-                        object-fit:cover;
-                     ">
+            {% include 'pengurus/card_pengurus.html' %}
 
-                {% endif %}
+        {% empty %}
 
-                <div class="card-body">
+            <div class="col-12">
 
-                    <h5>
+                <div class="alert alert-warning">
 
-                        {{ item.nama }}
-
-                    </h5>
-
-                    <p class="text-success">
-
-                        {{ item.jabatan }}
-
-                    </p>
+                    Belum ada pengurus inti.
 
                 </div>
 
             </div>
 
-        </div>
-
-        {% empty %}
-
-        <div class="col-12">
-
-            <div class="alert alert-warning text-center">
-
-                Data pengurus belum tersedia.
-
-            </div>
-
-        </div>
-
         {% endfor %}
 
     </div>
+
+    {% for div in divisi %}
+
+        <h3 class="mb-4">
+
+            Divisi {{ div.nama }}
+
+        </h3>
+
+        <div class="row g-4 mb-5">
+
+            {% for item in div.pengurus_set.all %}
+
+                {% include 'pengurus/card_pengurus.html' %}
+
+            {% empty %}
+
+                <div class="col-12">
+
+                    <div class="alert alert-warning">
+
+                        Belum ada anggota divisi.
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endfor %}
 
 </div>
 
