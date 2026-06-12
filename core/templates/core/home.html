@@ -80,5 +80,82 @@ Beranda
     </div>
 
 </section>
+<section class="container my-5">
+
+    <div class="text-center mb-4">
+
+        <h2 class="fw-bold">
+
+            Agenda Terdekat
+
+        </h2>
+
+        <p class="text-muted">
+
+            Jangan lewatkan kegiatan berikutnya.
+
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        {% for item in agenda_terdekat %}
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm h-100">
+
+                <div class="card-body">
+
+                    <h5>
+
+                        {{ item.nama_kegiatan }}
+
+                    </h5>
+
+                    <p>
+
+                        {{ item.deskripsi|truncatewords:15 }}
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        {{ item.tanggal }}
+                        {{ item.waktu }}
+
+                    </p>
+
+                    <a href="{% url 'detail_agenda' item.id %}"
+                       class="btn btn-success w-100">
+
+                        Lihat Detail
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-warning text-center">
+
+                Belum ada agenda.
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
 
 {% endblock %}

@@ -27,6 +27,8 @@ urlpatterns = [
     path('agenda/', include('agenda.urls')),
     path('galeri/',include('galeri.urls')),
     path('pengurus/',include('pengurus.urls')),
+    path('kontak/',include('kontak.urls')
+),
 ]
 
 if settings.DEBUG:

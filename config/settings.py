@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'core',
     'agenda',
     'galeri',
-    'pengurus'
+    'pengurus',
+    'kontak',
 ]
 
 MIDDLEWARE = [
