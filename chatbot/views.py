@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
-
+from .services.groq_service import ask_groq
 
 def chat_page(request):
 
@@ -12,7 +12,6 @@ def chat_page(request):
         'chatbot/chatbot.html'
 
     )
-
 
 def send_message(request):
 
@@ -40,15 +39,50 @@ def send_message(request):
 
         })
 
+        messages = [
+
+            {
+
+                'role': 'system',
+
+                'content': '''
+                Kamu adalah chatbot resmi Karang Taruna.
+
+                Jawablah pertanyaan dengan sopan,
+                singkat, dan mudah dipahami.
+
+                Jika tidak mengetahui jawaban,
+                sarankan pengguna menghubungi
+                pengurus melalui halaman kontak.
+
+                Jangan mengarang informasi.
+                '''
+
+            }
+
+        ] + history
+
+        ai_reply = ask_groq(
+            messages
+        )
+
+        history.append({
+
+            'role': 'assistant',
+
+            'content': ai_reply
+
+        })
+
         history = history[-10:]
 
-        request.session['chat_history'] = history
+        request.session[
+            'chat_history'
+        ] = history
 
         return JsonResponse({
 
-            'reply': 'Halo! AI sedang dalam tahap pengembangan.',
-
-            'history_count': len(history)
+            'reply': ai_reply
 
         })
 
