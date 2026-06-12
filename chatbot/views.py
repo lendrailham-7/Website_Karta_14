@@ -2,7 +2,14 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 from .services.groq_service import ask_groq
-
+from .services.knowledge_service import (
+    get_pengurus_context
+)
+from .services.knowledge_service import (
+    get_pengurus_context,
+    get_agenda_context,
+    get_berita_context,
+)
 def chat_page(request):
 
     return render(
@@ -38,28 +45,52 @@ def send_message(request):
             'content': user_message
 
         })
+        knowledge = (
 
+    get_pengurus_context()
+
+    +
+
+    "\n"
+
+    +
+
+    get_agenda_context()
+        
+         +
+
+    "\n"
+
+    +
+
+    get_berita_context()
+
+)
         messages = [
-
+        
             {
-
+            
                 'role': 'system',
-
-                'content': '''
-                Kamu adalah chatbot resmi Karang Taruna.
-
-                Jawablah pertanyaan dengan sopan,
-                singkat, dan mudah dipahami.
-
-                Jika tidak mengetahui jawaban,
-                sarankan pengguna menghubungi
-                pengurus melalui halaman kontak.
-
-                Jangan mengarang informasi.
-                '''
-
+        
+                'content': f"""
+        
+        Kamu adalah chatbot resmi Karang Taruna.
+        
+        Gunakan data berikut
+        untuk menjawab pertanyaan.
+        
+        {knowledge}
+        
+        Jika informasi tidak tersedia,
+        sarankan pengguna untuk
+        menghubungi pengurus.
+        
+        Jangan mengarang informasi.
+        
+        """
+        
             }
-
+        
         ] + history
 
         ai_reply = ask_groq(
