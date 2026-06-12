@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'galeri',
     'pengurus',
     'kontak',
+    'chatbot',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Chatbot
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-4">
+
+        <h1 class="fw-bold">
+
+            Chatbot Karang Taruna
+
+        </h1>
+
+        <p class="text-muted">
+
+            Tanyakan informasi seputar Karang Taruna.
+
+        </p>
+
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <div id="chat-box"
+                 style="
+                    height:400px;
+                    overflow-y:auto;
+                 ">
+
+            </div>
+
+            <div class="input-group mt-3">
+
+                <input type="text"
+                       id="message-input"
+                       class="form-control"
+                       placeholder="Ketik pesan...">
+
+                <button class="btn btn-success"
+                        onclick="sendMessage()">
+
+                    Kirim
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+async function sendMessage() {
+
+    const input = document.getElementById(
+        'message-input'
+    );
+
+    const message = input.value;
+
+    if (!message.trim()) {
+
+        return;
+
+    }
+
+    const response = await fetch(
+
+        "{% url 'send_message' %}",
+
+        {
+
+            method: 'POST',
+
+            headers: {
+
+                'Content-Type': 'application/json',
+
+                'X-CSRFToken': '{{ csrf_token }}'
+
+            },
+
+            body: JSON.stringify({
+
+                message: message
+
+            })
+
+        }
+
+    );
+
+    const data = await response.json();
+
+    const chatBox = document.getElementById(
+        'chat-box'
+    );
+
+    chatBox.innerHTML += `
+
+        <div class="text-end mb-2">
+
+            <span class="badge bg-success">
+
+                ${message}
+
+            </span>
+
+        </div>
+
+        <div class="text-start mb-2">
+
+            <span class="badge bg-secondary">
+
+                ${data.reply}
+
+            </span>
+
+        </div>
+
+    `;
+
+    input.value = '';
+
+}
+
+</script>
+
+{% endblock %}
