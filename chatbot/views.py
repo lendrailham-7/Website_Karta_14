@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
-from .services.groq_service import ask_groq
+from .services.groq_service import ask_ai
 from .services.knowledge_service import (
     get_pengurus_context
 )
@@ -9,6 +9,7 @@ from .services.knowledge_service import (
     get_pengurus_context,
     get_agenda_context,
     get_berita_context,
+    get_kontak_context,
 )
 def chat_page(request):
 
@@ -64,6 +65,13 @@ def send_message(request):
     +
 
     get_berita_context()
+     +
+
+    "\n"
+
+    +
+
+    get_kontak_context()
 
 )
         messages = [
@@ -93,7 +101,7 @@ def send_message(request):
         
         ] + history
 
-        ai_reply = ask_groq(
+        ai_reply = ask_ai(
             messages
         )
 

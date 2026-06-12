@@ -1,7 +1,8 @@
 from pengurus.models import Pengurus
 from agenda.models import Agenda
 from berita.models import Berita
-
+from kontak.views import kontak
+from django.conf import settings
 
 def get_pengurus_context():
 
@@ -71,5 +72,20 @@ def get_berita_context():
             f"Isi: {b.isi[:200]}\n\n"
 
         )
+
+    return context
+def get_kontak_context():
+
+    context = """
+DATA KONTAK KARANG TARUNA:
+
+WhatsApp: 628123456789
+Email: karangtaruna@gmail.com
+Instagram: @karangtaruna_rw14
+Alamat: Jl. Sariwates
+
+Jika pengguna ingin menghubungi Karang Taruna,
+sarankan menggunakan WhatsApp.
+"""
 
     return context
