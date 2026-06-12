@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
+from dotenv import load_dotenv
 from pathlib import Path
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -133,3 +136,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+GROQ_API_KEY_1 = os.getenv(
+    'GROQ_API_KEY_1'
+)
+
+GROQ_API_KEY_2 = os.getenv(
+    'GROQ_API_KEY_2'
+)
+
+GEMINI_API_KEY = os.getenv(
+    'GEMINI_API_KEY'
+)
