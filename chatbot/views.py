@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
-from .services.groq_service import ask_ai
+from .services.ai_router import ask_ai
 from .services.knowledge_service import (
     get_pengurus_context
 )

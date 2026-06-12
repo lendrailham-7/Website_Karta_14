@@ -1,6 +1,11 @@
-from .groq_service import ask_groq
-from .gemini_service import ask_gemini
+from .groq_service import (
+    ask_groq,
+    ask_groq_2
+)
 
+from .gemini_service import (
+    ask_gemini
+)
 
 def ask_ai(messages):
 
@@ -10,7 +15,13 @@ def ask_ai(messages):
 
     except Exception as e:
 
-        print("Groq 1 gagal:", e)
+        print(
+
+            "Groq 1 gagal:",
+
+            e
+
+        )
 
         try:
 
@@ -18,6 +29,34 @@ def ask_ai(messages):
 
         except Exception as e:
 
-            print("Groq 2 gagal:", e)
+            print(
 
-            return ask_gemini(messages)
+                "Groq 2 gagal:",
+
+                e
+
+            )
+
+            try:
+
+                return ask_gemini(messages)
+
+            except Exception as e:
+
+                print(
+
+                    "Gemini gagal:",
+
+                    e
+
+                )
+
+                return (
+
+                    "Maaf, layanan chatbot "
+
+                    "sedang mengalami gangguan. "
+
+                    "Silakan coba beberapa saat lagi."
+
+                )
