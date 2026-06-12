@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Agenda
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-4">
+
+        <h1 class="fw-bold">
+
+            Agenda Kegiatan
+
+        </h1>
+
+        <p class="text-muted">
+
+            Jadwal kegiatan Karang Taruna
+
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        {% for item in agenda %}
+
+        <div class="col-md-4">
+
+            <div class="card h-100 shadow-sm">
+
+                {% if item.gambar %}
+
+                <img src="{{ item.gambar.url }}"
+                     class="card-img-top"
+                     alt="{{ item.nama_kegiatan }}"
+                     style="height: 250px; object-fit: cover;">
+
+                {% endif %}
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title">
+
+                        {{ item.nama_kegiatan }}
+
+                    </h5>
+
+                    <p class="card-text">
+
+                        {{ item.deskripsi|truncatewords:20 }}
+
+                    </p>
+
+                    <p>
+
+                        <strong>Tanggal:</strong>
+                        {{ item.tanggal }}
+
+                    </p>
+
+                    <p>
+
+                        <strong>Waktu:</strong>
+                        {{ item.waktu }}
+
+                    </p>
+
+                    <div class="mt-auto">
+
+                        <a href="{% url 'detail_agenda' item.id %}"
+                           class="btn btn-success w-100">
+
+                            Lihat Detail
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-warning text-center">
+
+                Belum ada agenda.
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

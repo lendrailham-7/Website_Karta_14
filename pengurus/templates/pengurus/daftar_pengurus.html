@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pengurus
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+
+            Struktur Pengurus
+
+        </h1>
+
+        <p class="text-muted">
+
+            Pengurus Karang Taruna
+
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        {% for item in pengurus %}
+
+        <div class="col-md-3">
+
+            <div class="card text-center shadow-sm h-100">
+
+                {% if item.foto %}
+
+                <img src="{{ item.foto.url }}"
+                     class="card-img-top"
+                     style="
+                        height:250px;
+                        object-fit:cover;
+                     ">
+
+                {% endif %}
+
+                <div class="card-body">
+
+                    <h5>
+
+                        {{ item.nama }}
+
+                    </h5>
+
+                    <p class="text-success">
+
+                        {{ item.jabatan }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-warning text-center">
+
+                Data pengurus belum tersedia.
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

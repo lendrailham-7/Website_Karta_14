@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ berita.judul }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <a href="{% url 'daftar_berita' %}"
+       class="btn btn-secondary mb-4">
+
+        ← Kembali
+
+    </a>
+
+    <div class="card shadow">
+
+        {% if berita.gambar %}
+
+        <img src="{{ berita.gambar.url }}"
+             class="card-img-top"
+             alt="{{ berita.judul }}">
+
+        {% endif %}
+
+        <div class="card-body">
+
+            <h1 class="card-title">
+
+                {{ berita.judul }}
+
+            </h1>
+
+            <p class="text-muted">
+
+                {{ berita.tanggal|date:"d F Y" }}
+
+            </p>
+
+            <hr>
+
+            <p>
+
+                {{ berita.isi }}
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
