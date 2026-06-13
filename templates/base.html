@@ -152,6 +152,7 @@ body {
 
 }
 
+
 @keyframes typing {
 
     0%, 80%, 100% {
@@ -325,11 +326,18 @@ body {
         #5c1621,
         #8b1e2d
     ) !important;
+    border-radius: 16px !important;
 
     color: white !important;
 
     font-weight: 600;
-
+    box-shadow:
+    0 8px 20px rgba(
+        0,
+        0,
+        0,
+        0.15
+    );
 }
 
 .maroon-accordion-btn:not(.collapsed) {
@@ -348,8 +356,59 @@ body {
 
     filter: brightness(0) invert(1);
 
-}
+    transition: transform 0.3s ease;
 
+}
+.maroon-accordion-btn:not(.collapsed)::after {
+
+    transform: rotate(180deg);
+
+}
+.accordion-dark {
+
+    background: rgba(
+        44,
+        16,
+        23,
+        0.95
+    );
+
+}
+.jabatan-badge {
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b1e2d,
+            #b4233a
+        );
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+
+}
+.accordion-item {
+
+    background: transparent;
+
+    border: none;
+    transition: all 0.3s ease;
+     border: 1px solid rgba(
+        180,
+        35,
+        58,
+        0.15
+    );
+
+}
+.accordion-item:hover {
+
+    transform: translateY(-2px);
+
+}
 .card-hover {
 
     transition: 0.3s;
@@ -448,6 +507,68 @@ body {
     backdrop-filter: blur(10px);
 
 }
+.btn-glass {
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.12
+    );
+    box-shadow: 0 4px 15px rgba(
+    0,
+    0,
+    0,
+    0.1
+);
+
+    color: white;
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 14px;
+
+    transition: all 0.3s ease;
+
+}
+
+.btn-glass:hover {
+
+    background: rgba(
+        180,
+        35,
+        58,
+        0.2
+    );
+
+    border-color: rgba(
+        180,
+        35,
+        58,
+        0.4
+    );
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(
+        180,
+        35,
+        58,
+        0.2
+    );
+
+}
 .card-dark {
 
     background: var(--bg-card);
@@ -461,6 +582,18 @@ body {
 .card-dark .card-text {
 
     color: var(--text-muted);
+
+}
+.section-subtitle {
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    );
+
+    font-size: 1rem;
 
 }
 .footer-premium {

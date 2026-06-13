@@ -134,7 +134,7 @@ Beranda
     
     <div class="text-center mb-4">
         <h2 class="fw-bold">Berita Terbaru</h2>
-        <p class="text-muted">Informasi kegiatan terbaru Karang Taruna</p>
+        <p class="section-subtitle">Informasi kegiatan terbaru Karang Taruna</p>
     </div>
 
     <div class="row g-4">
@@ -189,7 +189,7 @@ Beranda
     <div class="text-center mt-4">
 
         <a href="{% url 'daftar_berita' %}"
-           class="btn btn-outline-maroon px-4">
+           class="btn btn-glass px-4 py-2">
 
             Lihat Semua Berita
 
@@ -210,7 +210,7 @@ Beranda
 
         </h2>
 
-        <p class="text-muted">
+        <p class="section-subtitle">
 
             Jangan lewatkan kegiatan berikutnya.
 
@@ -283,7 +283,7 @@ Beranda
 
     <div class="text-center mb-4">
         <h2 class="fw-bold">Kepengurusan</h2>
-        <p class="text-muted">
+        <p class="section-subtitle">
             Klik setiap jabatan untuk melihat anggota dan fotonya.
         </p>
     </div>
@@ -303,11 +303,20 @@ Beranda
             <div id="collapse{{ forloop.counter }}"
                  class="accordion-collapse collapse"
                  data-bs-parent="#accordionKepengurusan">
-                <div class="accordion-body card-dark">
+                <div class="accordion-body accordion-dark">
                     <div class="row g-3">
                         {% for anggota in item.anggota %}
                         <div class="col-12 col-sm-6 col-lg-3">
-                            <div class="card h-100 shadow-sm card-hover border-0 text-center overflow-hidden">
+                            <div class="
+                                    card
+                                    h-100
+                                    shadow
+                                    card-dark
+                                    card-hover
+                                    border-0
+                                    text-center
+                                    overflow-hidden
+                                ">
                               {% if anggota.foto %}
                                 <img src="{{ anggota.foto.url }}"
                                      class="profile-image mt-4 mx-auto d-block"
@@ -322,7 +331,7 @@ Beranda
                                     
                                     </h5>
                                 
-                                    <span class="badge bg-danger px-3 py-2">
+                                    <span class="badge jabatan-badge">
                                     
                                         {{ anggota.jabatan }}
                                     
