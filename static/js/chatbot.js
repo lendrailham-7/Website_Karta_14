@@ -112,7 +112,20 @@ document.getElementById(
     `typing-${typingId}`
 
 )?.remove();
+const formattedReply = data.reply
 
+    .replace(/\n/g, "<br>")
+
+    .replace(
+        /(\d+\.)/g,
+        "<br>$1"
+    )
+
+    .replace(
+        /^-\s/gm,
+        "• "
+    );
+    
 // Bubble bot
 chatBox.innerHTML += `
 
@@ -120,7 +133,7 @@ chatBox.innerHTML += `
 
     <div class="chat-bot">
 
-        ${data.reply}
+        ${formattedReply}
 
     </div>
 
