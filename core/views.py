@@ -14,11 +14,11 @@ def home(request):
         'Bendahara',
         'Ketua Pelaksana',
         'Wakil Ketua Pelaksana',
-        'Acara'
+        'Acara',
         'Logistik',
         'Konsumsi',
         'Humas',
-        'Sponsorship'
+        'Sponsorship',
         'PDD',
     ]
 

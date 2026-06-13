@@ -7,17 +7,7 @@ Beranda
 {% block content %}
 
 <section
-    class="text-white py-5"
-    style="
-        background: linear-gradient(
-            135deg,
-            #198754,
-            #14532d
-        );
-        min-height: 75vh;
-        display: flex;
-        align-items: center;
-    "
+    class="text-white py-5 hero-section"
 >
 
     <div class="container">
@@ -33,7 +23,13 @@ Beranda
                 </span>
 
                 <h1
-                    class="display-3 fw-bold mb-3"
+                    class="
+                        display-3
+                        display-md-2
+                        fw-bold
+                        mb-3
+                        hero-title
+                    "
                 >
 
                     Karang Taruna RW 14
@@ -53,13 +49,18 @@ Beranda
 
                 </p>
 
-                <div
-                    class="d-flex flex-wrap gap-3"
-                >
+                    <div
+                        class="
+                            d-flex
+                            flex-column
+                            flex-md-row
+                            gap-3
+                        "
+                    >
 
                     <a
                         href="{% url 'daftar_berita' %}"
-                        class="btn btn-light btn-lg"
+                        class="btn btn-maroon btn-lg hero-button"
                     >
 
                         📰 Berita Terbaru
@@ -68,7 +69,7 @@ Beranda
 
                     <a
                         href="{% url 'daftar_agenda' %}"
-                        class="btn btn-outline-light btn-lg"
+                        class="btn btn-outline-light btn-lg hero-button"
                     >
 
                         📅 Lihat Agenda
@@ -88,15 +89,14 @@ Beranda
                 "
             >
 
-                <div
-                    class="
-                        bg-white
-                        text-success
-                        rounded-4
-                        shadow-lg
-                        p-4
+            <div
+                 class="
+                    hero-glass
+                    text-white
+                    shadow-lg
+                    p-4
+                    p-md-5
                     "
-                >
 
                     <h4
                         class="fw-bold"
@@ -107,7 +107,7 @@ Beranda
                     </h4>
 
                     <p
-                        class="text-muted mb-0"
+                        class="mb-0 text-white"
                     >
 
                         Jadilah bagian dari
@@ -129,6 +129,9 @@ Beranda
 </section>
 
 <section class="container my-5">
+
+    <div class="dark-section p-4 rounded-4">
+    
     <div class="text-center mb-4">
         <h2 class="fw-bold">Berita Terbaru</h2>
         <p class="text-muted">Informasi kegiatan terbaru Karang Taruna</p>
@@ -137,7 +140,7 @@ Beranda
     <div class="row g-4">
         {% for item in berita_terbaru %}
         <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 shadow card-dark card-hover">
 
                 {% if item.gambar %}
                 <img src="{{ item.gambar.url }}"
@@ -158,7 +161,7 @@ Beranda
 
                     <div class="mt-auto">
                         <a href="{% url 'detail_berita' item.id %}"
-                           class="btn btn-success w-100">
+                           class="btn btn-maroon w-100">
 
                             Baca Selengkapnya
 
@@ -186,16 +189,18 @@ Beranda
     <div class="text-center mt-4">
 
         <a href="{% url 'daftar_berita' %}"
-           class="btn btn-outline-success px-4">
+           class="btn btn-outline-maroon px-4">
 
             Lihat Semua Berita
 
         </a>
 
     </div>
-
+    </div>
 </section>
 <section class="container my-5">
+
+    <div class="dark-section rounded-4 p-4">
 
     <div class="text-center mb-4">
 
@@ -217,11 +222,11 @@ Beranda
 
         {% for item in agenda_terdekat %}
 
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
 
-            <div class="card shadow-sm h-100">
+            <div class="card shadow h-100 card-dark card-hover">
 
-                <div class="card-body">
+                <div class="card-body text-center">
 
                     <h5>
 
@@ -235,7 +240,7 @@ Beranda
 
                     </p>
 
-                    <p class="text-muted">
+                    <p style="color: var(--text-muted);">
 
                         {{ item.tanggal }}
                         {{ item.waktu }}
@@ -243,7 +248,7 @@ Beranda
                     </p>
 
                     <a href="{% url 'detail_agenda' item.id %}"
-                       class="btn btn-success w-100">
+                       class="btn btn-maroon w-100">
 
                         Lihat Detail
 
@@ -270,9 +275,12 @@ Beranda
         {% endfor %}
 
     </div>
-
+    </div>
 </section>
 <section class="container my-5">
+
+    <div class="dark-section p-4 rounded-4">
+
     <div class="text-center mb-4">
         <h2 class="fw-bold">Kepengurusan</h2>
         <p class="text-muted">
@@ -295,21 +303,31 @@ Beranda
             <div id="collapse{{ forloop.counter }}"
                  class="accordion-collapse collapse"
                  data-bs-parent="#accordionKepengurusan">
-                <div class="accordion-body bg-white">
+                <div class="accordion-body card-dark">
                     <div class="row g-3">
                         {% for anggota in item.anggota %}
-                        <div class="col-md-4 col-lg-3">
+                        <div class="col-12 col-sm-6 col-lg-3">
                             <div class="card h-100 shadow-sm card-hover border-0 text-center overflow-hidden">
-                                {% if anggota.foto %}
+                              {% if anggota.foto %}
                                 <img src="{{ anggota.foto.url }}"
-                                     class="card-img-top"
-                                     alt="{{ anggota.nama }}"
-                                     style="height: 250px; object-fit: cover;">
+                                     class="profile-image mt-4 mx-auto d-block"
+                                     alt="{{ anggota.nama }}">
                                 {% endif %}
 
-                                <div class="card-body">
-                                    <h5 class="card-title mb-1">{{ anggota.nama }}</h5>
-                                    <p class="text-maroon mb-0">{{ anggota.jabatan }}</p>
+                                <div class="card-body text-center">
+                                
+                                    <h5 class="card-title mb-3">
+                                    
+                                        {{ anggota.nama }}
+                                    
+                                    </h5>
+                                
+                                    <span class="badge bg-danger px-3 py-2">
+                                    
+                                        {{ anggota.jabatan }}
+                                    
+                                    </span>
+                                
                                 </div>
                             </div>
                         </div>
@@ -325,6 +343,7 @@ Beranda
             </div>
         </div>
         {% endfor %}
+    </div>
     </div>
 </section>
 

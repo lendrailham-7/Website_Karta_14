@@ -22,6 +22,41 @@
     >
 
     <style>
+        :root {
+
+    --bg-primary: #14070b;
+
+    --bg-secondary: #220b11;
+
+    --bg-card: #2c1017;
+
+    --accent: #b4233a;
+
+    --accent-dark: #8b1e2d;
+
+    --text-light: #ffffff;
+
+    --text-muted: #bdbdbd;
+
+}
+body {
+
+    background:
+        linear-gradient(
+            -45deg,
+            var(--bg-primary),
+            var(--bg-secondary),
+            var(--bg-primary)
+        );
+
+    background-size: 400% 400%;
+
+    animation:
+        gradientMove 25s ease infinite;
+
+    color: var(--text-light);
+
+}
 
        .chat-user {
 
@@ -136,93 +171,445 @@
     }
 
 }
-    </style>
+.navbar .nav-link {
 
+    position: relative;
+
+    transition: 0.3s;
+
+}
+
+.navbar .nav-link:hover {
+
+    color: white !important;
+
+}
+
+.navbar .nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -5px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: white;
+
+    transition: 0.3s;
+
+}
+
+.navbar .nav-link:hover::after {
+
+    width: 100%;
+
+}   
+
+@keyframes gradientMove {
+
+    0% {
+
+        background-position: 0% 50%;
+
+    }
+
+    50% {
+
+        background-position: 100% 50%;
+
+    }
+
+    100% {
+
+        background-position: 0% 50%;
+
+    }
+
+}
+
+.hero-glass {
+
+    backdrop-filter: blur(12px);
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
+
+    border-radius: 24px;
+
+}
+
+.hero-title {
+
+    text-shadow:
+        0 10px 25px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+}
+
+.hero-button {
+
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+
+    transform: translateY(-4px);
+
+}
+.hero-section {
+
+    background:
+        linear-gradient(
+            -45deg,
+            #2b0d15,
+            #5a1323,
+            #8b1e2d,
+            #b4233a
+        );
+
+    background-size: 400% 400%;
+
+    animation:
+        gradientMove 18s ease infinite;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+
+}
+.hero-button {
+
+    transition: all 0.3s ease;
+
+}
+
+.hero-button:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+
+}
+.maroon-accordion-btn {
+
+    background: linear-gradient(
+        90deg,
+        #5c1621,
+        #8b1e2d
+    ) !important;
+
+    color: white !important;
+
+    font-weight: 600;
+
+}
+
+.maroon-accordion-btn:not(.collapsed) {
+
+    background: linear-gradient(
+        90deg,
+        #7a1c2f,
+        #b4233a
+    ) !important;
+
+    color: white !important;
+
+}
+
+.maroon-accordion-btn::after {
+
+    filter: brightness(0) invert(1);
+
+}
+
+.card-hover {
+
+    transition: 0.3s;
+
+}
+
+.card-hover:hover {
+
+    transform: translateY(-8px);
+
+}
+
+.profile-image {
+
+    width: 120px;
+
+    height: 120px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 50%;
+
+    border: 4px solid #8b1e2d;
+
+    box-shadow: 0 8px 20px rgba(
+        0,
+        0,
+        0,
+        0.15
+    );
+
+}
+.btn-maroon {
+
+    background: linear-gradient(
+        90deg,
+        #7a1c2f,
+        #b4233a
+    );
+
+    color: white;
+
+    border: none;
+
+}
+
+.btn-maroon:hover {
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(
+        180,
+        35,
+        58,
+        0.3
+    );
+
+}
+
+.btn-outline-maroon {
+
+    color: #8b1e2d;
+
+    border: 2px solid #8b1e2d;
+
+}
+
+.btn-outline-maroon:hover {
+
+    background: #8b1e2d;
+
+    color: white;
+
+}
+.dark-section {
+
+    background: rgba(
+        44,
+        16,
+        23,
+        0.9
+    );
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(
+        180,
+        35,
+        58,
+        0.15
+    );
+    backdrop-filter: blur(10px);
+
+}
+.card-dark {
+
+    background: var(--bg-card);
+
+    color: white;
+
+    border: none;
+
+}
+
+.card-dark .card-text {
+
+    color: var(--text-muted);
+
+}
+.footer-premium {
+
+    background:
+        linear-gradient(
+            90deg,
+            #12070b,
+            #220b11,
+            #3a111c
+        );
+
+    border-top: 2px solid rgba(
+        180,
+        35,
+        58,
+        0.3
+    );
+
+}
+.footer-premium a {
+
+    transition: 0.3s;
+
+}
+
+.footer-premium a:hover {
+
+    color: #ff5c76 !important;
+
+    padding-left: 5px;
+
+}
+.footer-divider {
+
+    border-color: rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
+
+}
+@media (max-width: 768px) {
+
+    .hero-title {
+
+        font-size: 2.5rem !important;
+
+    }
+
+    .hero-glass {
+
+        margin-top: 2rem;
+
+    }
+
+    .hero-button {
+
+        width: 100%;
+
+    }
+
+    .profile-image {
+
+        width: 100px;
+
+        height: 100px;
+
+    }
+
+    #chatbotButton {
+
+        width: 55px !important;
+
+        height: 55px !important;
+
+        font-size: 22px !important;
+
+    }
+
+}
+
+</style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav
+    class="navbar navbar-expand-lg navbar-dark shadow-sm"
+    style="
+        background:
+        linear-gradient(
+            90deg,
+            #4d1120,
+            #7a1c2f,
+            #8b1e2d
+        );
+    "
+>
 
     <div class="container">
 
-        <a class="navbar-brand fw-bold"
-           href="/">
-
+        <a
+            class="navbar-brand fw-bold fs-3"
+            href="/"
+        >
             Karang Taruna
-
         </a>
 
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+        >
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
-        <div class="collapse navbar-collapse"
-             id="navbarNav">
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNav"
+        >
 
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="/">
-
-                        Beranda
-
-                    </a>
+                    <a class="nav-link" href="/">Beranda</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="/berita/">
-
-                        Berita
-
-                    </a>
+                    <a class="nav-link" href="/berita/">Berita</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="/agenda/">
-
-                        Agenda
-
-                    </a>
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link"
-                       href="/galeri/">
-
-                        Galeri
-
-                    </a>
-                
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link"
-                       href="/pengurus/">
-                                
-                        Pengurus
-                                
-                    </a>
-                
+                    <a class="nav-link" href="/agenda/">Agenda</a>
                 </li>
 
                 <li class="nav-item">
-
-                    <a class="nav-link"
-                       href="/kontak/">
-
-                        Kontak
-
-                    </a>
-                
+                    <a class="nav-link" href="/galeri/">Galeri</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/pengurus/">Pengurus</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/kontak/">Kontak</a>
+                </li>
+
             </ul>
 
         </div>
@@ -233,7 +620,7 @@
 
 {% block content %}{% endblock %}
 
-<footer class="bg-dark text-light mt-5 pt-5 pb-3">
+<footer class="footer-premium text-light mt-5 pt-5 pb-3">
     <div class="container">
         <div class="row g-4">
 
@@ -264,7 +651,7 @@
 
         </div>
 
-        <hr class="border-secondary my-4">
+        <hr class="footer-divider my-4">
 
         <div class="text-center small">
             © 2026 Karang Taruna. All rights reserved.
@@ -272,7 +659,7 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- Floating Chatbot Button -->
 <button
     class="btn btn-success rounded-circle shadow"
@@ -289,7 +676,7 @@
         font-size: 28px;
     "
 >
-    💬
+    🤖
 </button>
 <div class="modal fade" id="chatbotModal" tabindex="-1">
 
