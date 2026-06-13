@@ -101,17 +101,6 @@
                     </a>
                 
                 </li>
-
-                <li class="nav-item">
-                
-                    <a class="nav-link"
-                       href="/chatbot/">
-                
-                        Chatbot
-                
-                    </a>
-                
-                </li>
             </ul>
 
         </div>
@@ -162,5 +151,167 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Floating Chatbot Button -->
+<button
+    class="btn btn-success rounded-circle shadow"
+    id="chatbotButton"
+    data-bs-toggle="modal"
+    data-bs-target="#chatbotModal"
+    style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 65px;
+        height: 65px;
+        z-index: 1050;
+        font-size: 28px;
+    "
+>
+    💬
+</button>
+<div class="modal fade" id="chatbotModal" tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-scrollable">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    Chatbot Karang Taruna
+
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div
+                    id="chat-box"
+                    style="
+                        height: 350px;
+                        overflow-y: auto;
+                    "
+                >
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <div class="input-group">
+
+                    <input
+                        type="text"
+                        id="message-input"
+                        class="form-control"
+                        placeholder="Tulis pesan..."
+                    >
+
+                    <button
+                        class="btn btn-success"
+                        onclick="sendMessage()"
+                    >
+
+                        Kirim
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+async function sendMessage() {
+
+    const input = document.getElementById(
+        'message-input'
+    );
+
+    const message = input.value;
+
+    if (!message.trim()) {
+
+        return;
+
+    }
+
+    const response = await fetch(
+
+        "{% url 'send_message' %}",
+
+        {
+
+            method: 'POST',
+
+            headers: {
+
+                'Content-Type': 'application/json',
+
+                'X-CSRFToken': '{{ csrf_token }}'
+
+            },
+
+            body: JSON.stringify({
+
+                message: message
+
+            })
+
+        }
+
+    );
+
+    const data = await response.json();
+
+    const chatBox = document.getElementById(
+        'chat-box'
+    );
+
+    chatBox.innerHTML += `
+
+        <div class="text-end mb-2">
+
+            <span class="badge bg-success p-2">
+
+                ${message}
+
+            </span>
+
+        </div>
+
+        <div class="text-start mb-2">
+
+            <span class="badge bg-secondary p-2">
+
+                ${data.reply}
+
+            </span>
+
+        </div>
+
+    `;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    input.value = '';
+
+}
+
+</script>
 </body>
 </html>
