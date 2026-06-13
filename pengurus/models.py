@@ -39,5 +39,9 @@ class Pengurus(models.Model):
         default=0
     )
 
+    is_koordinator = models.BooleanField(
+        default=False
+    )
+
     def __str__(self):
         return self.nama

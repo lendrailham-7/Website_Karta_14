@@ -4,13 +4,13 @@ def kontak(request):
 
     context = {
 
-        'alamat': 'Jl. Contoh No. 14',
+        'alamat': 'Jl. Sariwates, Antapani Kidul',
 
         'whatsapp': '628123456789',
 
-        'email': 'karangtaruna@gmail.com',
+        'email': 'xxxxxx@gmail.com',
 
-        'instagram': '@karangtaruna_rw14',
+        'instagram': '@kartasariwates14',
 
         'jam': 'Senin - Jumat, 08.00 - 17.00'
 

@@ -8,7 +8,7 @@ class DivisiAdmin(admin.ModelAdmin):
 
     list_display = (
         'nama',
-        'urutan'
+        'urutan',
     )
 
     list_editable = (
@@ -27,20 +27,23 @@ class PengurusAdmin(admin.ModelAdmin):
         'nama',
         'jabatan',
         'divisi',
-        'urutan'
+        'urutan',
+        'is_koordinator',
     )
 
     list_filter = (
         'divisi',
+        'is_koordinator',
     )
 
     list_editable = (
         'urutan',
+        'is_koordinator',
     )
 
     search_fields = (
         'nama',
-        'jabatan'
+        'jabatan',
     )
 
     ordering = (

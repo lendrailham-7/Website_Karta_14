@@ -21,668 +21,12 @@
         rel="stylesheet"
     >
 
-    <style>
-        :root {
-
-    --bg-primary: #14070b;
-
-    --bg-secondary: #220b11;
-
-    --bg-card: #2c1017;
-
-    --accent: #b4233a;
-
-    --accent-dark: #8b1e2d;
-
-    --text-light: #ffffff;
-
-    --text-muted: #bdbdbd;
-
-}
-body {
-
-    background:
-        linear-gradient(
-            -45deg,
-            var(--bg-primary),
-            var(--bg-secondary),
-            var(--bg-primary)
-        );
-
-    background-size: 400% 400%;
-
-    animation:
-        gradientMove 25s ease infinite;
-
-    color: var(--text-light);
-
-}
-
-       .chat-user {
-
-    background: linear-gradient(
-        135deg,
-        #198754,
-        #146c43
-    );
-
-    color: white;
-
-    padding: 10px 14px;
-
-    border-radius: 18px 18px 4px 18px;
-
-    display: inline-block;
-
-    max-width: 75%;
-
-    word-break: break-word;
-
-}
-
-.chat-bot {
-
-    background: #f5f5f5;
-
-    color: black;
-
-    padding: 10px 14px;
-
-    border-radius: 18px 18px 18px 4px;
-
-    display: inline-block;
-
-    max-width: 75%;
-
-    word-break: break-word;
-
-    box-shadow: 0 2px 10px rgba(
-        0,
-        0,
-        0,
-        0.08
-    );
-
-}
-
-#chat-box {
-
-    height: 350px;
-
-    overflow-y: auto;
-
-    overflow-x: hidden;
-
-    padding: 10px;
-
-}
-.typing-bubble {
-
-    min-width: 60px;
-
-}
-
-.typing-dot {
-
-    width: 8px;
-
-    height: 8px;
-
-    margin: 0 2px;
-
-    border-radius: 50%;
-
-    display: inline-block;
-
-    background-color: #888;
-
-    animation: typing 1.4s infinite;
-
-}
-
-.typing-dot:nth-child(2) {
-
-    animation-delay: 0.2s;
-
-}
-
-.typing-dot:nth-child(3) {
-
-    animation-delay: 0.4s;
-
-}
-
-
-@keyframes typing {
-
-    0%, 80%, 100% {
-
-        transform: scale(0.8);
-
-        opacity: 0.5;
-
-    }
-
-    40% {
-
-        transform: scale(1);
-
-        opacity: 1;
-
-    }
-
-}
-.navbar .nav-link {
-
-    position: relative;
-
-    transition: 0.3s;
-
-}
-
-.navbar .nav-link:hover {
-
-    color: white !important;
-
-}
-
-.navbar .nav-link::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: -5px;
-
-    width: 0;
-
-    height: 2px;
-
-    background: white;
-
-    transition: 0.3s;
-
-}
-
-.navbar .nav-link:hover::after {
-
-    width: 100%;
-
-}   
-
-@keyframes gradientMove {
-
-    0% {
-
-        background-position: 0% 50%;
-
-    }
-
-    50% {
-
-        background-position: 100% 50%;
-
-    }
-
-    100% {
-
-        background-position: 0% 50%;
-
-    }
-
-}
-
-.hero-glass {
-
-    backdrop-filter: blur(12px);
-
-    background: rgba(
-        255,
-        255,
-        255,
-        0.1
-    );
-
-    border: 1px solid rgba(
-        255,
-        255,
-        255,
-        0.15
-    );
-
-    border-radius: 24px;
-
-}
-
-.hero-title {
-
-    text-shadow:
-        0 10px 25px rgba(
-            0,
-            0,
-            0,
-            0.2
-        );
-}
-
-.hero-button {
-
-    transition: 0.3s;
-}
-
-.hero-button:hover {
-
-    transform: translateY(-4px);
-
-}
-.hero-section {
-
-    background:
-        linear-gradient(
-            -45deg,
-            #2b0d15,
-            #5a1323,
-            #8b1e2d,
-            #b4233a
-        );
-
-    background-size: 400% 400%;
-
-    animation:
-        gradientMove 18s ease infinite;
-
-    min-height: 80vh;
-
-    display: flex;
-
-    align-items: center;
-
-}
-.hero-button {
-
-    transition: all 0.3s ease;
-
-}
-
-.hero-button:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 25px rgba(
-            0,
-            0,
-            0,
-            0.2
-        );
-
-}
-.maroon-accordion-btn {
-
-    background: linear-gradient(
-        90deg,
-        #5c1621,
-        #8b1e2d
-    ) !important;
-    border-radius: 16px !important;
-
-    color: white !important;
-
-    font-weight: 600;
-    box-shadow:
-    0 8px 20px rgba(
-        0,
-        0,
-        0,
-        0.15
-    );
-}
-
-.maroon-accordion-btn:not(.collapsed) {
-
-    background: linear-gradient(
-        90deg,
-        #7a1c2f,
-        #b4233a
-    ) !important;
-
-    color: white !important;
-
-}
-
-.maroon-accordion-btn::after {
-
-    filter: brightness(0) invert(1);
-
-    transition: transform 0.3s ease;
-
-}
-.maroon-accordion-btn:not(.collapsed)::after {
-
-    transform: rotate(180deg);
-
-}
-.accordion-dark {
-
-    background: rgba(
-        44,
-        16,
-        23,
-        0.95
-    );
-
-}
-.jabatan-badge {
-
-    background:
-        linear-gradient(
-            90deg,
-            #8b1e2d,
-            #b4233a
-        );
-
-    padding: 10px 18px;
-
-    border-radius: 999px;
-
-    font-size: 0.85rem;
-
-}
-.accordion-item {
-
-    background: transparent;
-
-    border: none;
-    transition: all 0.3s ease;
-     border: 1px solid rgba(
-        180,
-        35,
-        58,
-        0.15
-    );
-
-}
-.accordion-item:hover {
-
-    transform: translateY(-2px);
-
-}
-.card-hover {
-
-    transition: 0.3s;
-
-}
-
-.card-hover:hover {
-
-    transform: translateY(-8px);
-
-}
-
-.profile-image {
-
-    width: 120px;
-
-    height: 120px;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    border-radius: 50%;
-
-    border: 4px solid #8b1e2d;
-
-    box-shadow: 0 8px 20px rgba(
-        0,
-        0,
-        0,
-        0.15
-    );
-
-}
-.btn-maroon {
-
-    background: linear-gradient(
-        90deg,
-        #7a1c2f,
-        #b4233a
-    );
-
-    color: white;
-
-    border: none;
-
-}
-
-.btn-maroon:hover {
-
-    color: white;
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 8px 20px rgba(
-        180,
-        35,
-        58,
-        0.3
-    );
-
-}
-
-.btn-outline-maroon {
-
-    color: #8b1e2d;
-
-    border: 2px solid #8b1e2d;
-
-}
-
-.btn-outline-maroon:hover {
-
-    background: #8b1e2d;
-
-    color: white;
-
-}
-.dark-section {
-
-    background: rgba(
-        44,
-        16,
-        23,
-        0.9
-    );
-
-    border-radius: 24px;
-
-    border: 1px solid rgba(
-        180,
-        35,
-        58,
-        0.15
-    );
-    backdrop-filter: blur(10px);
-
-}
-.btn-glass {
-
-    background: rgba(
-        255,
-        255,
-        255,
-        0.05
-    );
-
-    border: 1px solid rgba(
-        255,
-        255,
-        255,
-        0.12
-    );
-    box-shadow: 0 4px 15px rgba(
-    0,
-    0,
-    0,
-    0.1
-);
-
-    color: white;
-
-    backdrop-filter: blur(12px);
-
-    -webkit-backdrop-filter: blur(12px);
-
-    border-radius: 14px;
-
-    transition: all 0.3s ease;
-
-}
-
-.btn-glass:hover {
-
-    background: rgba(
-        180,
-        35,
-        58,
-        0.2
-    );
-
-    border-color: rgba(
-        180,
-        35,
-        58,
-        0.4
-    );
-
-    color: white;
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 10px 25px rgba(
-        180,
-        35,
-        58,
-        0.2
-    );
-
-}
-.card-dark {
-
-    background: var(--bg-card);
-
-    color: white;
-
-    border: none;
-
-}
-
-.card-dark .card-text {
-
-    color: var(--text-muted);
-
-}
-.section-subtitle {
-
-    color: rgba(
-        255,
-        255,
-        255,
-        0.7
-    );
-
-    font-size: 1rem;
-
-}
-.footer-premium {
-
-    background:
-        linear-gradient(
-            90deg,
-            #12070b,
-            #220b11,
-            #3a111c
-        );
-
-    border-top: 2px solid rgba(
-        180,
-        35,
-        58,
-        0.3
-    );
-
-}
-.footer-premium a {
-
-    transition: 0.3s;
-
-}
-
-.footer-premium a:hover {
-
-    color: #ff5c76 !important;
-
-    padding-left: 5px;
-
-}
-.footer-divider {
-
-    border-color: rgba(
-        255,
-        255,
-        255,
-        0.15
-    );
-
-}
-@media (max-width: 768px) {
-
-    .hero-title {
-
-        font-size: 2.5rem !important;
-
-    }
-
-    .hero-glass {
-
-        margin-top: 2rem;
-
-    }
-
-    .hero-button {
-
-        width: 100%;
-
-    }
-
-    .profile-image {
-
-        width: 100px;
-
-        height: 100px;
-
-    }
-
-    #chatbotButton {
-
-        width: 55px !important;
-
-        height: 55px !important;
-
-        font-size: 22px !important;
-
-    }
-
-}
-
-</style>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
 <nav
-    class="navbar navbar-expand-lg navbar-dark shadow-sm"
+    class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top"
     style="
         background:
         linear-gradient(
@@ -700,7 +44,7 @@ body {
             class="navbar-brand fw-bold fs-3"
             href="/"
         >
-            Karang Taruna
+            Karang Taruna RW 14 
         </a>
 
         <button
@@ -722,6 +66,8 @@ body {
                 <li class="nav-item">
                     <a class="nav-link" href="/">Beranda</a>
                 </li>
+                    <a class="nav-link" href="/#About">Tentang</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="/berita/">Berita</a>
@@ -733,10 +79,6 @@ body {
 
                 <li class="nav-item">
                     <a class="nav-link" href="/galeri/">Galeri</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/pengurus/">Pengurus</a>
                 </li>
 
                 <li class="nav-item">
@@ -758,7 +100,7 @@ body {
         <div class="row g-4">
 
             <div class="col-md-4">
-                <h5 class="fw-bold">Karang Taruna</h5>
+                <h5 class="fw-bold">Karang Taruna RW 14</h5>
                 <p class="mb-0">
                     Pemuda berkarya, masyarakat sejahtera.
                 </p>
@@ -768,10 +110,12 @@ body {
                 <h5 class="fw-bold">Menu</h5>
                 <ul class="list-unstyled mb-0">
                     <li><a href="/" class="text-light text-decoration-none">Beranda</a></li>
+                    <li><a href="/#About" class="text-light text-decoration-none">Tentang</a></li>
                     <li><a href="/berita/" class="text-light text-decoration-none">Berita</a></li>
                     <li><a href="/agenda/" class="text-light text-decoration-none">Agenda</a></li>
                     <li><a href="/galeri/" class="text-light text-decoration-none">Galeri</a></li>
                     <li><a href="/pengurus/" class="text-light text-decoration-none">Pengurus</a></li>
+                    <li><a href="/kontak/" class="text-light text-decoration-none">Kontak</a></li>
                 </ul>
             </div>
 
@@ -795,7 +139,7 @@ body {
 
 <!-- Floating Chatbot Button -->
 <button
-    class="btn btn-success rounded-circle shadow"
+    class="btn btn-maroon rounded-circle shadow"
     id="chatbotButton"
     data-bs-toggle="modal"
     data-bs-target="#chatbotModal"
@@ -853,7 +197,7 @@ body {
                     >
 
                     <button
-                        class="btn btn-success"
+                        class="btn btn-maroon"
                         onclick="sendMessage()"
                     >
 
@@ -886,5 +230,31 @@ body {
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
 ></script>
 
+<!-- Modal Foto -->
+<div
+    class="modal fade"
+    id="imageModal"
+    tabindex="-1"
+>
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content bg-transparent border-0">
+
+            <img
+                id="modalImage"
+                class="img-fluid rounded-4"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script
+    src="{% static 'js/home.js' %}"
+></script>
 </body>
 </html>

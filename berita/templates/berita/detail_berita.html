@@ -9,19 +9,22 @@
 <div class="container my-5">
 
     <a href="{% url 'daftar_berita' %}"
-       class="btn btn-secondary mb-4">
+       class="btn btn-maroon mb-4">
 
         ← Kembali
 
     </a>
 
-    <div class="card shadow">
+    <div class="card card-dark border-0">
 
         {% if berita.gambar %}
 
-        <img src="{{ berita.gambar.url }}"
-             class="card-img-top"
-             alt="{{ berita.judul }}">
+        <img
+            src="{{ berita.gambar.url }}"
+            class="img-fluid rounded-4 detail-image"
+            alt="{{ berita.judul }}"
+        >
+             
 
         {% endif %}
 
@@ -33,7 +36,7 @@
 
             </h1>
 
-            <p class="text-muted">
+            <p class="section-subtitle">
 
                 {{ berita.tanggal|date:"d F Y" }}
 
