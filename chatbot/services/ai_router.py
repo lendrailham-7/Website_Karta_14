@@ -19,6 +19,7 @@ Aturan menjawab:
 5. Jangan menggabungkan beberapa poin dalam satu paragraf.
 6. Jika jawaban berupa penjelasan umum, gunakan paragraf yang rapi dan mudah dibaca.
 7. Jangan mengarang informasi.
+8. Jika ditanya tentang kepengurusan jawab dari pengurus sampai semua divisi dan jangan menyebut pengurus inti, jawab saja semua pengurus
 """
 
 def ask_ai(messages):
