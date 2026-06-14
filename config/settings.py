@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-i7j@2#=%5!(o1z6wgwf03anyld&m&_*@8yq0%_2no@6d-r&6dz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -152,4 +153,9 @@ GROQ_API_KEY_2 = os.getenv(
 
 GEMINI_API_KEY = os.getenv(
     'GEMINI_API_KEY'
+)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_STORAGE = (
+    'whitenoise.storage.CompressedManifestStaticFilesStorage'
 )
