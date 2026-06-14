@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os
+import dj_database_url
 from dotenv import load_dotenv
 from pathlib import Path
 load_dotenv()
@@ -82,16 +83,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'karangtaruna',
-        'USER': 'root',
-        'PASSWORD': 'IlhamRamadan37',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default': dj_database_url.parse(
+        'postgresql://neondb_owner:npg_xXbpAKZe4Lt9@ep-tiny-term-ao1dpcx9.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require'
+    )
 }
 
 
