@@ -61,3 +61,27 @@ previewImages.forEach((image) => {
     );
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+
+    const typingDescription = document.getElementById('typing-description');
+
+    if (!typingDescription) return;
+
+    const text = "Pemuda Berkarya, Masyarakat Sejahtera.\nBersama membangun lingkungan yang aktif, kreatif, dan peduli sosial.";
+
+    let index = 0;
+
+    function typeDescription() {
+        if (index < text.length) {
+            const char = text.charAt(index);
+
+            typingDescription.innerHTML += char === '\n' ? '<br>' : char;
+
+            index++;
+            setTimeout(typeDescription, 25);
+        }
+    }
+
+    typeDescription();
+
+});
