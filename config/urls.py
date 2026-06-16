@@ -30,5 +30,3 @@ urlpatterns = [
     path('kontak/',include('kontak.urls')),
     path('chatbot/',include('chatbot.urls')),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
