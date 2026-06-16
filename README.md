@@ -1,6 +1,6 @@
 # Website Karang Taruna
 
-Website organisasi Karang Taruna yang dibangun menggunakan Django dan MySQL.
+Website organisasi Karang Taruna yang dibangun menggunakan Django dan NeonPostgreSQL.
 
 ## Fitur
 
@@ -14,5 +14,15 @@ Website organisasi Karang Taruna yang dibangun menggunakan Django dan MySQL.
 
 - Python
 - Django
-- MySQL
+- NeonPostgreSQL
 - Bootstrap
+
+## Stack Production:
+- Django 5.2
+- Railway
+- Neon PostgreSQL
+- Cloudinary
+- WhiteNoise
+- Groq Chatbot
+- Gemini Fallback
+
