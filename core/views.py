@@ -13,8 +13,8 @@ def home(request):
         'MENPORA RW 14',
         'KETUA',
         'WAKIL KETUA',
-        'KETUA PELAKSANA',
-        'WAKIL KETUA PELAKSANA',
+        'KETUA PANITIA HUT RI',
+        'WAKIL KETUA PANITIA HUT RI',
         'SEKRETARIS',
         'BENDAHARA',
     ]
